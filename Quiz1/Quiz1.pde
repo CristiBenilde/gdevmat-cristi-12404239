@@ -1,3 +1,9 @@
+int diameter = 10;
+float t = 0;
+float dt = .2;
+float amplitude = 50;
+float frequency = .7;
+
 void setup()
 {
   size(1280, 720, P3D);
@@ -9,7 +15,9 @@ void draw()
   background (255); // sets the Background color of the Whole Window
   
   drawCartesianPlane();
+  drawLinearFunction();
   drawQuadraticFunction();
+  waveDraw();
 }
 
 void drawCartesianPlane ()
@@ -40,25 +48,38 @@ void drawLinearFunction()
   Let x be -5, then y = -3 (-5, 3)
   */
   
-  color green = color (0,255,0);
-  fill(green);
+  color Purple = color (128,0,128);
+  fill(Purple);
   noStroke();
   
   for (float x = -200; x <= 200; x++)
   {
-    circle (x, x + 2, 5);
+    circle (x, -5 * x + 30, 5);
     
   }
 }
 
 void drawQuadraticFunction()
 {
-  color Red = color (255,0,0);
-  fill(Red);
-  stroke(Red);
+  color Yellow = color (255,255,0);
+  fill(Yellow);
+  stroke(Yellow);
   
   for (float x = -300; x <= 300; x+=0.1f)
   {
     circle (x, (float) Math.pow(x,2) - (15 * x) - 3, 3);
   }
+}
+
+void waveDraw()
+{
+  color Blue = color (0,0,255);
+  fill(Blue);
+  stroke(Blue);
+  
+  for(int i=0; i < 500/diameter+ 0; i++)
+  {
+    ellipse(i*diameter - 250, amplitude*sin(frequency*(t+i))+height/2 + - 350,diameter,diameter);
+  }
+  t += dt;
 }
