@@ -31,7 +31,6 @@ void draw()
   for (int i = 0; i < walkers.length; i++)
   {
     walkers[i].update2(mouse);
-    walkers[i].setColor(random(255), random(255), random(255), 255);
     walkers[i].render();
   }
 }

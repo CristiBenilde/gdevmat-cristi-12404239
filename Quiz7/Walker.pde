@@ -6,7 +6,6 @@ public class Walker
   
   public float velocityLimit = 10;
   public float scale = 15;
-  public float r = 255, g = 255, b = 255, a = 255;
 
   public void update()
   {
@@ -33,12 +32,4 @@ public class Walker
   {
     circle(position.x, position.y, scale);
   }
-  
-  public void setColor(float r, float g, float b, float a)
-   {
-      this.r = r;
-      this.g = g;
-      this.b = b;
-      this.a = a;
-   }
 }
